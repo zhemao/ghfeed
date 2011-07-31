@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<title>Github Feed</title>
+	
+</head>
+<body>
+	<h1>Github Feed - RSS for your Github</h1>
+	<p>
+		Github Feed generates RSS feeds for your Github commits so that others
+		can subscribe to them through an RSS aggregator like Google Reader. 
+		This might be useful for new updates to a Github Pages blog, new 
+		versioned releases of your software, or anything else you'd like to 
+		share with the world.
+	</p>
+	<h2>How it Works</h2>
+	<p>
+		Go to your repository's admin console and add <a href="/">this address</a>
+		as a post-receive hook. When you want a commit to be added to the RSS
+		feed, add the word &quot;@rss&quot; anywhere in the commit message. 
+		The commit will then be added into our database. You can then subscribe
+		to the RSS feed at http://ghpages.heroku.com/<em>username</em>/<em>repo</em>. 
+	</p> 
+</body>
+</html>
