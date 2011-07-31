@@ -1,4 +1,4 @@
-require 'document'
+require './document'
 require 'mongo'
 
 helpers do

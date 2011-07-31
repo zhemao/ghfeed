@@ -14,8 +14,6 @@ configure do
 	end
 end
 
-$LOAD_PATH << '.'
-
-require 'helpers'
-require 'routes'
+require './helpers'
+require './routes'
 
