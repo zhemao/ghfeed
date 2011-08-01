@@ -7,6 +7,7 @@ helpers do
 			mongo = settings.mongo
 			conn = Mongo::Connection.new(mongo['host'], mongo['port'])
 			$db = conn.db(mongo['database'])
+			$db.authenticate(mongo['username'], mongo['password'])
 		end
 		return $db[collname]
 	end
@@ -26,7 +27,7 @@ helpers do
 	def update_feed(payload)
 		url = payload.repository['url']
 		commits = payload.commits.find_all do |commit|
-			message = commit.message
+			message = commit['message']
 			message =~ /@rss/i
 		end
 		repo = get_repo(url)
