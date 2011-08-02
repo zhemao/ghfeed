@@ -1,7 +1,7 @@
 require 'json'
 
 get '/' do
-	erb :index
+	redirect to('/index.html')
 end
 
 post '/' do
