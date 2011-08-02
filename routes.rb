@@ -19,6 +19,6 @@ get '/:user/:repo' do
 		return 404 
 	end
 	
-	return 200, {'Content-Type' => 'application/rss+xml'}, 
+	return 200, {'Content-Type' => 'application/xml'}, 
 		(erb :feed, :locals => {:repo => repo})
 end
