@@ -4,3 +4,11 @@
 	padding: 10px;
 }
 
+#banner {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#banner img{
+	height: 50px;
+}
