@@ -1,0 +1,18 @@
+Github Feed
+============
+
+Github Feed is a github services post-receive hook that generates RSS feeds for
+commits you make to a Github repository. GH Feed was built with Sinatra and
+MongoDB and is currently hosted on Heroku. 
+
+To use Github Feed for one of your repositories, add http://ghfeed.heroku.com 
+as a post-receive url in the repository's admin console. Any commits you then 
+push to your repository with "@rss" in the commit message will be stored in
+the database. If you navigate to http://ghfeed.heroku.com/username/repo, you
+will find an RSS feed of your "@rss" tagged commits.
+
+To deploy Github Feed on your own servers, you will have to modify the 
+settings.yml file with your server's configuration. Also, you will have to set
+the MONGO_PASSWORD environmental variable. If you are on a server with physical
+or ssh access, run the command "export MONGO_PASSWORD=password" on the terminal.
+If you are deploying to Heroku, type "heroku config:add MONGO_PASSWORD=password".
