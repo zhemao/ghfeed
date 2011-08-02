@@ -13,7 +13,12 @@ end
 get '/:user/:repo' do
 	user = params[:user]
 	repo = params[:repo]
-	url = "http://github.com/:user/:repo"
+	url = "http://github.com/#{user}/#{repo}"
 	repo = get_repo(url)
-	erb :feed, :locals => {:repo => repo}
+	if repo.nil? 
+		return 404 
+	end
+	
+	return 200, {'Content-Type' => 'application/rss+xml'}, 
+		(erb :feed, :locals => {:repo => repo})
 end

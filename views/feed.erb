@@ -4,16 +4,33 @@
 	<title><%=repo.name%></title>
 	<description><%=repo.description%></description>
 	<link><%=repo.url%></link>
-	<lastBuildDate>Mon, 06 Sep 2010 00:01:00 +0000 </lastBuildDate>
-	<pubDate>Mon, 06 Sep 2009 16:45:00 +0000 </pubDate>
+	<lastBuildDate><%= repo.end_date %></lastBuildDate>
+	<pubDate><%= repo.start_date %></pubDate>
 
+	<% repo.commits.each do |commit|%>
 	<item>
-		<title>Example entry</title>
-		<description>Here is some text containing an interesting description.</description>
-		<link>http://www.wikipedia.org/</link>
-		<guid>unique string per item</guid>
-		<pubDate>Mon, 06 Sep 2009 16:45:00 +0000 </pubDate>
+		<title><%= commit.message %></title>
+		<description>
+			<% if commit.added
+				commit.added.each do |filename| %>
+					Added <%= filename %>
+				<% end
+			end
+			if commit.modified
+				commit.modified.each do |filename| %>
+					Modified <%= filename %>
+				<% end
+			end
+			if commit.deleted
+				commit.deleted.each do |filename| %>
+					Deleted <%= filename %>
+				<%end
+			end %>
+		</description>
+		<link><%= commit.url %>/link>
+		<guid><%= commit.id %></guid>
+		<pubDate><%= commit.timestamp %></pubDate>
 	</item>
- 
+ 	<% end %>
 </channel>
 </rss>

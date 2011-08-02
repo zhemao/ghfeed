@@ -31,11 +31,15 @@ class Document
 		@dict[key] = value
 	end
 	
+	def to_h
+		@dict.clone
+	end
+	
 	def save(coll)
 		if @dict.key? '_id'
-			coll.update({'_id'=>@dict['_id']}, @dict)
+			coll.update({'_id'=>@dict['_id']}, self.to_h)
 		else
-			@dict['_id'] = coll.insert(@dict)
+			@dict['_id'] = coll.insert(self.to_h)
 		end
 	end
 end

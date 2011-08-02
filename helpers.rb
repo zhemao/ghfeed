@@ -1,4 +1,6 @@
-require './document'
+require './models/document'
+require './models/repository'
+require './models/commit'
 require 'mongo'
 
 helpers do
@@ -16,7 +18,7 @@ helpers do
 		coll = connect('repos')
 		dict = coll.find_one({'url' => url})
 		return nil if dict.nil?
-		return Document.new(dict)
+		return Repo.new(dict)
 	end
 	
 	def save_repo(repo)
@@ -30,9 +32,10 @@ helpers do
 			message = commit['message']
 			message =~ /@rss/i
 		end
+		commits = commits.map{|commit| Commit.new(commit) }
 		repo = get_repo(url)
 		if repo.nil?
-			repo = Document.new(payload.repository)
+			repo = Repo.new(payload.repository)
 			repo.commits = commits
 		else
 			repo.commits = commits + repo.commits
