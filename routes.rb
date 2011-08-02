@@ -13,7 +13,7 @@ end
 get '/:user/:repo' do
 	user = params[:user]
 	repo = params[:repo]
-	url = "http://github.com/#{user}/#{repo}"
+	url = "https://github.com/#{user}/#{repo}"
 	repo = get_repo(url)
 	if repo.nil? 
 		return 404 
