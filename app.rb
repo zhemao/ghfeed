@@ -12,7 +12,9 @@ configure do
 			set key.to_sym, value
 		end
 	end
-	settings.mongo['password'] = ENV['MONGO_PASSWORD']
+	if ENV['MONGO_PASSWORD']
+		settings.mongo['password'] = ENV['MONGO_PASSWORD']
+	end
 end
 
 require './helpers'
