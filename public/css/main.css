@@ -54,6 +54,14 @@ body{
 	color: #E57432;
 }
 
+#content .item {
+    padding-left: 2em;
+}
+
+#disclaimer{
+    font-style: italic;
+}
+
 #content a{
 	
 	color: #E57432;
