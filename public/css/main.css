@@ -48,7 +48,7 @@ body{
 	font-size: 1.25em;
 }
 
-#content p span{
+.special{
 	font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
 	font-size: .75em;
 	color: #E57432;
@@ -69,6 +69,12 @@ body{
 	font-weight: 400;
 }
 
+.name{
+    color: #E57432;
+    text-decoration: none;
+	font-weight: 400;
+}
+
 #content a:hover{
 	color: #3B4A84;
 }
@@ -85,10 +91,6 @@ body{
 	margin: 5px;
 }
 
-#footer h2{
-    font-size: 1.5em;
-}
-
-#footer p{
-    font-size: 1em;
+#footer a{
+    margin-right: 20px;
 }
