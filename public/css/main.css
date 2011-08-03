@@ -1,9 +1,68 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:900,300,400);
+
+body{
+}
+
 #content{
 	background-color: #dae6ea;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	color: #000;
+	text-shadow: 1px 1px 2px #fff;
+	border-radius:30px;
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px;
+	-o-border-radius: 30px;
+}
+
+#title{
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+}
+
+#content #title h1{
+	font-weight: 900;
+	font-size: 5em;
+	text-shadow: 2px 2px 1px #fff;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#content #title h2{
+	margin-top: 0px;
+	margin-left: 0px;
+}
+
+#content h2{
+	margin-left: 5%;
+	font-size: 2em;
+}
+
+#content p{
+	margin-left: 5%;
+	margin-right: 5%;
+	font-size: 1.25em;
+}
+
+#content p span{
+	font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+	font-size: .75em;
+	color: #E57432;
+}
+
+#content a{
+	
+	color: #E57432;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+#content a:hover{
+	color: #3B4A84;
 }
 
 #banner {
