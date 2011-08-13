@@ -2,19 +2,22 @@
 
 require 'sinatra'
 require 'erubis'
+require 'uri'
+
 Tilt.register :erb, Tilt[:erubis]
 
 configure do
-	require 'yaml'
-	open("settings.yml") do |f|
-		yml = YAML.load(f)
-		yml.each do |key,value|
-			set key.to_sym, value
-		end
-	end
-	if ENV['MONGO_PASSWORD']
-		settings.mongo['password'] = ENV['MONGO_PASSWORD']
-	end
+	uristr = ENV['MONGOHQ_URL']
+	uri = URI.parse(uristr)
+	
+	mongo = {}
+	mongo['host'] = uri.host
+	mongo['port'] = uri.port
+	mongo['database'] = uri.path[1..-1]
+	mongo['username'] = uri.user
+	mongo['password'] = uri.password
+
+	set :mongo, mongo
 end
 
 require './helpers'

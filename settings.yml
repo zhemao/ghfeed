@@ -1,5 +1,0 @@
-mongo:
-  host: staff.mongohq.com
-  port: 10025
-  database: ghfeed
-  username: ghfeed
